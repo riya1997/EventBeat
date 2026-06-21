@@ -43,7 +43,7 @@ const Registration = () => {
       if (!password) throw new Error("Password should not be blank ");
 
       const callApi = async () => {
-        const response = await fetch("http://localhost:4001/api/users", {
+        const response = await fetch("http://localhost:3001/api/users", {
           method: "POST",
           headers: {
             Accept: "application/json",

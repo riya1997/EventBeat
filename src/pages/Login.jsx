@@ -1,14 +1,15 @@
 import { useState } from "react";
 import { useAuth } from "../context/AuthContext";
+import { Navigate } from "react-router";
 
 const Login = () => {
-  const auth = useAuth();
-  //console.log(auth);
+  const { isAuthenticated, loginAction } = useAuth();
   const [input, setInput] = useState({
     email: "",
     password: "",
   });
   const [error, setError] = useState({});
+  
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -37,7 +38,7 @@ const Login = () => {
       return; // stop here, don't accept the submission
     }
 
-    auth.loginAction(input);
+   loginAction(input);
     setInput({
       email: "",
       password: "",
@@ -45,6 +46,7 @@ const Login = () => {
     setError({});
     //}
   };
+   if (isAuthenticated) return <Navigate to='/' />; // Redirection back to Homepage after succesful log in (Toni)
 
   return (
     <div className="max-w-100 mx-auto mt-30 p-5 pl-10 border-[3px] border-black font-sans rounded-2xl">
