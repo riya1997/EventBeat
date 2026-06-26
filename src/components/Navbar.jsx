@@ -21,7 +21,7 @@ const Navbar = () => {
         <Link to="/" className="flex flex-row gap-3">
           <img
             className="w-10"
-            src="/src/img/heartbeat_logo.png"
+            src="./src/img/heartbeat_logo.png"
             alt="logo of a heartbeat pulse in a cirle"
           />
           <span className=" text-[#150046] text-3xl font-bold tracking-tight">
